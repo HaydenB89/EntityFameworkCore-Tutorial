@@ -9,18 +9,23 @@ namespace EntityFameworkCore_Tutorial {
 
             AppDbContext context = new AppDbContext();
 
+            // read customer by PRIMARY KEY
+            var customer = context.Customers.Find(2);
+            Console.WriteLine($"{customer.Name} {customer.Sales:c}");
+
+            // read ALL customers
             var customers = from cust in context.Customers
                             where cust.Sales < 100000
                             select cust;
 
-            //commentign this out to try Query syntax
+            //commenting this out to try Query syntax above
             //List<Customer> customers = context.Customers
             //                                    .Where(cust => cust.Sales < 100000)
             //                                    .ToList();
 
 
-            foreach(var customer in customers) {
-                Console.WriteLine($"{customer.Name} {customer.Sales:c}");
+            //foreach(var customer in customers) {
+            //    Console.WriteLine($"{customer.Name} {customer.Sales:c}");
 
             }
         }
