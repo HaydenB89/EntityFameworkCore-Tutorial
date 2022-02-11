@@ -9,11 +9,11 @@ namespace EntityFameworkCore_Tutorial.Migrations
         {
             migrationBuilder.CreateTable(
                 name: "Customers",
-                columns: table => new
+                columns: table => new                                                     //this folloing informationd
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)                    
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),     //remeber* in SQL nvarchar(max) is arround 2bill characters
                     Active = table.Column<bool>(type: "bit", nullable: false),
                     Sales = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Updated = table.Column<DateTime>(type: "datetime2", nullable: false)

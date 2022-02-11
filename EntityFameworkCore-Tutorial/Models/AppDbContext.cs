@@ -16,7 +16,7 @@ namespace EntityFameworkCore_Tutorial.Models {                         //This wi
         protected override void OnConfiguring(DbContextOptionsBuilder builder) {   //overroding the messge when using OnConfig
                                                                                       //Protected ONLY allows from specified class
             if(!builder.IsConfigured) {
-                builder.UseSqlServer("server=localhost\\sqlexpress;database=SalesDb1;trused_connection=true;");       //this will create and rename a new 'using database'
+                builder.UseSqlServer("server=localhost\\sqlexpress;database=SalesDb1;trusted_connection=true;");       //this will create and rename a new 'using database'
                                                                                                                         // '\\' means one'\' will appear in the message
             }
         }
