@@ -5,7 +5,7 @@ namespace EntityFameworkCore_Tutorial.Migrations
 {
     public partial class Intialization : Migration
     {
-        protected override void Up(MigrationBuilder migrationBuilder)
+        protected override void Up(MigrationBuilder migrationBuilder)         //'Up' essentially means Forward moving
         {
             migrationBuilder.CreateTable(
                 name: "Customers",
@@ -22,9 +22,9 @@ namespace EntityFameworkCore_Tutorial.Migrations
                 {
                     table.PrimaryKey("PK_Customers", x => x.Id);
                 });
-        }
+        }               
 
-        protected override void Down(MigrationBuilder migrationBuilder)
+        protected override void Down(MigrationBuilder migrationBuilder)      //'Down' essentially means Reverse
         {
             migrationBuilder.DropTable(
                 name: "Customers");
