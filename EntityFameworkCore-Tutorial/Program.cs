@@ -9,6 +9,10 @@ namespace EntityFameworkCore_Tutorial {
 
             AppDbContext context = new AppDbContext();
 
+            var newCustomer = new Customer() {
+                Id = 0
+            };
+
             // read customer by PRIMARY KEY
             var customer = context.Customers.Find(2);
             Console.WriteLine($"{customer.Name} {customer.Sales:c}");
