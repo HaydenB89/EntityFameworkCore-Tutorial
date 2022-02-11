@@ -9,6 +9,8 @@ namespace EntityFameworkCore_Tutorial.Models {                         //This wi
     public class AppDbContext : DbContext {                            // DbContext is part of the EF package we downloaded
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<Item> Items { get; set; }
+
 
         public AppDbContext() { }                                                           //Default Constructor
         public AppDbContext(DbContextOptions<AppDbContext> options): base(options) { }      //Parent Constructor
