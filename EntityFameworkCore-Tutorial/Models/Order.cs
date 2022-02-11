@@ -14,8 +14,8 @@ namespace EntityFameworkCore_Tutorial.Models {
         public string Description { get; set; }
         [Column(TypeName ="decimal(11,2)")]
         public decimal Total { get; set; }
-        public int? CustomerId { get; set; }                // FOREIGN ID,  EF recognizes automatically since the Property has Id in it
-                                                            // the '?' says that this cannot be null, this means the Customer mus have an Id
+        public int CustomerId { get; set; }                // FOREIGN ID,  EF recognizes automatically since the Property has Id in it
+         //                                                // the '?' says that this cannot be null, this means the Customer mus have an Id
         public virtual Customer Customer { get; set; }     // This will not be in the TABLE only in the CLASS
 
 

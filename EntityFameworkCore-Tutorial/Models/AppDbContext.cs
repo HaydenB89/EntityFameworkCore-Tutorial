@@ -8,10 +8,11 @@ using System.Threading.Tasks;
 namespace EntityFameworkCore_Tutorial.Models {                         //This will not be a SQL table, EF will use this as refernce
     public class AppDbContext : DbContext {                            // DbContext is part of the EF package we downloaded
         public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
 
-        public AppDbContext() { }                                        //Default Constructor
-        public AppDbContext(DbContextOptions<AppDbContext> options)      //Parent Constructor
-                                                : base(options) { } 
+        public AppDbContext() { }                                                           //Default Constructor
+        public AppDbContext(DbContextOptions<AppDbContext> options): base(options) { }      //Parent Constructor
+                                                 
         
         protected override void OnConfiguring(DbContextOptionsBuilder builder) {   //overroding the messge when using OnConfig
                                                                                       //Protected ONLY allows from specified class

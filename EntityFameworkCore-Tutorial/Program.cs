@@ -1,4 +1,5 @@
 ﻿using EntityFameworkCore_Tutorial.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,14 +10,31 @@ namespace EntityFameworkCore_Tutorial {
 
             AppDbContext context = new AppDbContext();
 
+            //add a new order for krogrt
+            var kroger = context.Customers.SingleOrDefault(c => c.Name.StartsWith("Krog"));
+            var order = new Order() {
+                Id = 0, Description = "3rd Order", Total = 2500, CustomerId = kroger.Id
+            };
+
+            context.Orders.Add(order);
+            context.SaveChanges();
+
+
+            //read all orders
+            var orders = context.Orders.Include(x => x.Customer).ToList();
+
+            foreach(var ordr in orders)
+                Console.WriteLine($"{ordr.Id,-5}{ordr.Description,-10}" +
+                                    $"{ordr.Total,10:c} {ordr.Customer.Name,-10}");
+
 
             //delete a customer
-            var amazon = context.Customers.SingleOrDefault(c => c.Name == "Amazon");
+            //var amazon = context.Customers.SingleOrDefault(c => c.Name == "Amazon");
 
-            if(amazon != null) {                         //this says to not look for amazon if it does not exist
-                context.Customers.Remove(amazon);        //this is what DELETES all amazon that are not null
-                context.SaveChanges();
-            }
+            //if(amazon != null) {                         //this says to not look for amazon if it does not exist
+            //    context.Customers.Remove(amazon);        //this is what DELETES all amazon that are not null
+            //    context.SaveChanges();
+            //}
 
                 //update a customer
             //var max = context.Customers.Find(1);
@@ -38,9 +56,9 @@ namespace EntityFameworkCore_Tutorial {
             //Console.WriteLine($"{customer.Name} {customer.Sales:c}");
 
                  // read ALL customers
-            var customers = from cust in context.Customers
+           // var customers = from cust in context.Customers
             //                where cust.Sales < 100000
-                            select cust;
+            //                select cust;
 
             //commenting this out to try Query syntax above
             //List<Customer> customers = context.Customers
@@ -48,10 +66,10 @@ namespace EntityFameworkCore_Tutorial {
             //                                    .ToList();
 
 
-            foreach(var customer in customers) {
-                Console.WriteLine($"{customer.Name,20} {customer.Sales,10:c}");
+           // foreach(var customer in customers) {
+            //    Console.WriteLine($"{customer.Name,20} {customer.Sales,10:c}");
 
-            }
+            //}
         }
     }
 }
