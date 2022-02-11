@@ -11,7 +11,7 @@ namespace EntityFameworkCore_Tutorial.Models {
         [StringLength(50)]
         public string Name { get; set; }
         public bool Active { get; set; } //= true;
-        [Column(TypeName)]
+        [Column(TypeName= "decimal(9,2)")]
         public decimal Sales { get; set; }
         public DateTime Updated { get; set; }
     }
