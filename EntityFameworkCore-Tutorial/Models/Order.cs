@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace EntityFameworkCore_Tutorial.Models {
     public class Order {
         public int Id { get; set; }
-        [Required]
+        [Required]                                        // [Required] = NOT NULL
         [StringLength(80)]
         public string Description { get; set; }
         [Column(TypeName ="decimal(11,2)")]
