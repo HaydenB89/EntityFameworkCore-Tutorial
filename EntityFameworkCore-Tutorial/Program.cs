@@ -10,7 +10,8 @@ namespace EntityFameworkCore_Tutorial {
             AppDbContext context = new AppDbContext();
 
             var newCustomer = new Customer() {
-                Id = 0
+                Id = 0, Name = "Kroger", Active = true, 
+                Sales = 30000000, Updated = new DateTime(2022, 2, 11)
             };
 
             // read customer by PRIMARY KEY
