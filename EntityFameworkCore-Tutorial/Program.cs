@@ -10,10 +10,17 @@ namespace EntityFameworkCore_Tutorial {
 
             AppDbContext context = new AppDbContext();
 
-            var items = context.Items.Include(x => x.Code).ToList();
+            var items = context.Items.ToList();
+
+            foreach(var itm in items) {
+                itm.Price = itm.Price * 1.1m;
+            }
+            context.SaveChanges();
+
+            items = context.Items.ToList();
 
             foreach (var item in items) {
-                Console.WriteLine($"{item.Id, -10} {item.Code,-10} {item.Price,10:c}");
+                Console.WriteLine($"{item.Id, -2} {item.Code,-10} {item.Name, -10} {item.Price,10:c}");
             }
 
             //    //add a new order for krogrt
