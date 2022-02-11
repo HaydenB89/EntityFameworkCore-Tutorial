@@ -25,7 +25,7 @@ namespace EntityFameworkCore_Tutorial.Models {                         //This wi
         protected override void OnModelCreating(ModelBuilder builder) {            //this method also overides something in DbConext
              builder.Entity<Item>
                 (e => e.HasIndex(x => x.Code)
-                    .IsUnique(true));
+                    .IsUnique(true));                                              // this makes Item.Code unique
         }
     }
 }
