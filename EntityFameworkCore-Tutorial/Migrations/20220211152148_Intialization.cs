@@ -22,7 +22,7 @@ namespace EntityFameworkCore_Tutorial.Migrations
                 {
                     table.PrimaryKey("PK_Customers", x => x.Id);
                 });
-        }               
+        }
 
         protected override void Down(MigrationBuilder migrationBuilder)      //'Down' essentially means Reverse
         {
