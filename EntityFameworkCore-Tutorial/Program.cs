@@ -9,9 +9,14 @@ namespace EntityFameworkCore_Tutorial {
 
             AppDbContext context = new AppDbContext();
 
-            List<Customer> customers = context.Customers
-                                                .Where(cust => cust.Sales < 100000)
-                                                .ToList();
+            var customers = from cust in context.Customers
+                            where cust.Sales < 100000
+                            select cust;
+
+            //commentign this out to try Query syntax
+            //List<Customer> customers = context.Customers
+            //                                    .Where(cust => cust.Sales < 100000)
+            //                                    .ToList();
 
 
             foreach(var customer in customers) {
